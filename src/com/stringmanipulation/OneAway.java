@@ -41,11 +41,11 @@ public class OneAway {
     public static boolean isOneEditAway(String first, String second){
         if (first.equals(second) || Math.abs(first.length() - second.length()) > 1)
             return false;
-        else if (first.length() == second.length())
+        if (first.length() == second.length())
             return oneEditReplace(first, second);
-        else if (first.length() < second.length())
+        if (first.length() < second.length())
             return oneEditInsert(first, second);
-        else if (first.length() > second.length())
+        if (first.length() > second.length())
             return oneEditInsert(second, first);
         return false;
     }
