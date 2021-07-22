@@ -1,6 +1,7 @@
 package com.Classes.Shapes;
 
 public class Triangle implements Shape{
+    //Sides
     private double base;
     private double sideOne;
     private double sideTwo;
@@ -16,13 +17,13 @@ public class Triangle implements Shape{
         return base + sideOne + sideTwo;
     }
 
+    /*
+    * Returns the area of the triangle based on Heron's formula
+    * */
     @Override
     public double getArea() {
-        return (base * getHeight()) / 2;
-    }
-
-    public double getHeight(){
-        return 1.0;
+        double s = getPerimeter() / 2;
+        return Math.sqrt(s * (s-base) * (s-sideOne) * (s-sideTwo));
     }
 
     public double getBase() {
