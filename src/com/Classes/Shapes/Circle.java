@@ -1,15 +1,19 @@
 package com.Classes.Shapes;
 
 public class Circle implements Shape{
-    private double radius;
+    enum Input{
+        RADIUS,DIAMETER
+    }
 
-    public Circle(double radius){
-        this.radius = radius;
+    private final double radius;
+
+    public Circle (double input, Input inputType){
+        this.radius = inputType.equals((Input.DIAMETER)) ? input/2 : input;
     }
 
     @Override
     public double getArea(){
-        return Math.PI * radius * radius;
+        return Math.PI * Math.pow(radius,2);
     }
 
     @Override
@@ -18,11 +22,21 @@ public class Circle implements Shape{
         return 2 * Math.PI * radius;
     }
 
+    public double getDiameter(){
+        return radius*2;
+    }
+
     public double getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
-        this.radius = radius;
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + getRadius() +
+                ", diameter=" + getDiameter() +
+                ", Circumference=" + getPerimeter() +
+                ", Area=" + getArea() +
+                '}';
     }
 }

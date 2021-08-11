@@ -49,4 +49,15 @@ public class Triangle implements Shape{
     public void setSideTwo(double sideTwo) {
         this.sideTwo = sideTwo;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "base=" + base +
+                ", sideOne=" + sideOne +
+                ", sideTwo=" + sideTwo +
+                ", Perimeter=" + getPerimeter() +
+                ", Area=" + getArea() +
+                '}';
+    }
 }

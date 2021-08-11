@@ -1,27 +1,19 @@
 package com.Classes.Shapes;
 
-public class Square implements Shape{
-    private double width;
+public class Square extends Rectangle implements Shape{
+    private final double side;
 
-    public Square(double width){
-        this.width = width;
+    public Square(double side){
+        super(side, side);
+        this.side = side;
     }
 
     @Override
-    public double getArea() {
-        return width*width;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return width*4;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
+    public String toString() {
+        return "Square{" +
+                "side=" + side +
+                ", Perimeter=" + getPerimeter() +
+                ", Area=" + getArea() +
+                '}';
     }
 }
