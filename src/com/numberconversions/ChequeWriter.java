@@ -66,25 +66,32 @@ public class ChequeWriter {
         else if (input < 100){
             output.append(tensNames[input/10]);
             input %= 10;
-            output.append(convert(input));
+            if (input != 0) output.append(convert(input));
         }
         else if (input < 1000){
             output.append(numsNames[input/100]);
             output.append("Hundred ");
             input %= 100;
-            output.append(convert(input));
+            if (input != 0) output.append(convert(input));
+
         }
         else if (input < 1000000){
             output.append(convert(input/1000));
             output.append("Thousand ");
             input %= 1000;
-            output.append(convert(input));
+            if (input != 0)  output.append(convert(input));
         }
         else if (input < 1000000000){
             output.append(convert(input/1000000));
             output.append("Million ");
             input %= 1000000;
-            output.append(convert(input));
+            if (input != 0) output.append(convert(input));
+        }
+        else{
+            output.append(convert(input/1000000000));
+            output.append("Billion ");
+            input %= 1000000000;
+            if (input != 0) output.append(convert(input));
         }
         return output.toString();
     }
@@ -103,7 +110,7 @@ public class ChequeWriter {
 
     public static void main(String[] args) {
         printCheque("1.00");
-        printCheque("12.00");
+        printCheque("12.58");
         printCheque("123.00");
         printCheque("1234.00");
         printCheque("12345.00");
